@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dnslib = ">=0.9.7"
+loguru = "*"
+tinydb = "*"
+pydantic = "*"
+fastapi = "*"
+uvicorn = "*"
+typing-extensions = "*"
+
+[dev-packages]
+pytest = "6.2.5"
+hypothesis = "*"
+black = "*"
+bandit = "*"
+bump2version = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true

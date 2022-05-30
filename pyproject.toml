@@ -1,0 +1,36 @@
+[tool.nitpick]
+style = [
+  "https://raw.githubusercontent.com/invian/nitpick/master/nitpick-38.toml",]
+
+[tool.black]
+line-length = 100
+target-version = ["py38"]
+verbose = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
+py_version = 38
+skip = [".gitignore", ".dockerignore"]
+known_first_party = ["experimental"]
+known_third_party = ["telegraf"]
+
+[tool.importlinter]
+root_packages = ["evwsync", "server"]
+
+[[tool.importlinter.contracts]]
+name = "Server should not depend on the client code"
+type = "forbidden"
+source_modules = "server"
+forbidden_modules= [
+    "evwsync",
+]
+
+[[tool.importlinter.contracts]]
+name = "Client code should not use server code"
+type = "forbidden"
+source_modules = "evwsync"
+forbidden_modules= [
+    "server",
+]
+

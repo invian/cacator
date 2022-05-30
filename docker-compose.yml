@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  beacon_server:
+    image: beacon-server:dev
+    ports:
+      - "53:53"
+      - "5053:5053"
+    # volumes:
+    #   - ./weasel_data/:/app/dump/
+    restart: always

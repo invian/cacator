@@ -1,0 +1,23 @@
+name: Python package
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8.13'
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+          pipenv install --system --deploy --dev --ignore-pipfile
+      - name: Test with pytest
+        run: |
+          pip install pytest pytest-cov
+          pytest tests/ --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
