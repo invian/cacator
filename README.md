@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/invian/invian/main.yml?style=for-the-badge&label=Tests">
-  <img alt="GitHub" src="https://img.shields.io/github/license/invian/cacator?color=brown&style=for-the-badge">
+  <img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/invian/cacator/main.yml?style=for-the-badge&label=Tests">
+  <img alt="GitHub" src="https://img.shields.io/github/license/invian/cacator?style=for-the-badge">
   <a href="https://github.com/facebookarchive/WEASEL"><img alt="KUDOS" src="https://img.shields.io/badge/kudos-weasel-brown?style=for-the-badge"></a>
   <img alt="Code style" src="https://img.shields.io/badge/code%20style-black-black?style=for-the-badge">
 </p>
