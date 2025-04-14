@@ -13,7 +13,7 @@
 
 [RU](./README_RU.md)
 
-Cacator, derived from Latin, meaning "defecator," sounds like "pain in the a**" in Russian.
+Cacator, derived from Latin, Russian translation interprets more like "a pain in the a**".
 
 This project serves as a beacon for detecting unauthorized copies of our software. It operates using DNS covert channels.
 Initially based on WEASEL, the project has undergone significant restructuring.
