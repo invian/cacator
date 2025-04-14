@@ -13,10 +13,10 @@
 
 [RU](./README_RU.md)
 
-Cacator, derived from Latin, Russian translation interprets more like "a pain in the a**".
+Cacator, derived from Latin, Russian translation interprets more like "a pain in the a\*\*".
 
 This project serves as a beacon for detecting unauthorized copies of our software. It operates using DNS covert channels.
-Initially based on [WEASEL](https://github.com/facebookarchive/WEASEL), the project has undergone significant restructuring.
+Initially based on [WEASEL][facebook-weasel], the project has undergone significant restructuring.
 
 The main benefit of using this type of communication channel is that it hides your beacon from network scanners. Scanning
 for strange DNS requests is expensive and troublesome, so almost no one does it.
@@ -55,5 +55,6 @@ A DNS server, which pretends to respond to client requests with IP addresses (ke
 Client messages are encrypted, split into packets, and encoded as domain addresses (e.g., somerandomcryptobase64==@example.org).
 The server receives these packets, assembles and decrypts them, and responds with packets encoded as IP addresses.
 There is potential to develop this into an RCE control center, but such an implementation was not needed. However,
-an example of this can be found in [WEASEL](https://github.com/facebookarchive/WEASEL).
+an example of this can be found in [WEASEL][facebook-weasel].
 
+[facebook-weasel]: https://github.com/facebookarchive/WEASEL
