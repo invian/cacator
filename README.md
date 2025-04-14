@@ -18,7 +18,12 @@ Cacator, derived from Latin, meaning "defecator," sounds like "pain in the a**" 
 This project serves as a beacon for detecting unauthorized copies of our software. It operates using DNS covert channels.
 Initially based on WEASEL, the project has undergone significant restructuring.
 
-Initially based on [WEASEL](https://github.com/facebookarchive/WEASEL), the project has undergone significant restructuring.
+The main benefit of using this type of communication channel is that it hides your beacon from network scanners. Scanning
+for strange DNS requests is expensive and troublesome, so almost no one does it.
+
+It is generally illegal to deploy such trackers (and INVIAN never did). However, having such a repository in your company's
+GitHub account can help instill fear in those unscrupulous and filthy competitors who have been stealing proprietary software and ML models from
+honest companies for years without getting caught.
 
 ## Project structure
 ### evwsync
