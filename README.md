@@ -16,7 +16,7 @@
 Cacator, derived from Latin, Russian translation interprets more like "a pain in the a**".
 
 This project serves as a beacon for detecting unauthorized copies of our software. It operates using DNS covert channels.
-Initially based on WEASEL, the project has undergone significant restructuring.
+Initially based on [WEASEL](https://github.com/facebookarchive/WEASEL), the project has undergone significant restructuring.
 
 The main benefit of using this type of communication channel is that it hides your beacon from network scanners. Scanning
 for strange DNS requests is expensive and troublesome, so almost no one does it.
