@@ -11,15 +11,28 @@
 
 # Cacator
 
-Cacator (с лат. — "засранец"). Маячок для выявления несанкционированных копий нашего ПО. Работает через DNS covert channels.
+[RU](./README_RU.md)
 
-Проект является глубокой переработкой [WEASEL](https://github.com/facebookarchive/WEASEL).
+Cacator, derived from Latin, Russian translation interprets more like "a pain in the a\*\*".
 
-## evwsync
+This project serves as a beacon for detecting unauthorized copies of our software. It operates using DNS covert channels.
+Initially based on [WEASEL][facebook-weasel], the project has undergone significant restructuring.
+
+The main benefit of using this type of communication channel is that it hides your beacon from network scanners. Scanning
+for strange DNS requests is expensive and troublesome, so almost no one does it.
+
+It is generally illegal to deploy such trackers (and INVIAN never did). However, having such a repository in your company's
+GitHub account can help instill fear in those unscrupulous and filthy competitors who have been stealing proprietary software and ML models from
+honest companies for years without getting caught.
+
+## Project structure
+### evwsync
 
 > "Just a weather synchronizer"
 
-Пакет-клиент, который устанавливается в продукт и запускается из него. В него передается фактори для данных, которые будут отправляться и адреса серверов в base64:
+This client library to be injected into a product. It requires a data factory along with DNS server addresses encoded in base64.
+This setup helps conceal suspicious strings in case malicious actors attempt to find them. Given that the products were written in Python,
+hiding information was challenging.
 
 ```python
 from evwsync import WeatherSynchronizer
@@ -31,12 +44,17 @@ WeatherSynchronizer(
 )
 ```
 
-Клиент сначала проведет обмен Диффи-Хэлмана с сервером, а потом начнет слать данные.
+The client initiates a Diffie-Hellman key exchange with the server and then begins sending data.
 
-## server
+### server
 
-Wannabe-DNS-server, с которым соединяется клиент и начинает слать данные. 
+A DNS server, which pretends to respond to client requests with IP addresses (keep reading to find out why!).
 
-Потенциально при правильной доработке, может стать контрольным центром для RCE. Но нам это было не надо. Реализацию такого механизма можно посмотреть здесь: [WEASEL](https://github.com/facebookarchive/WEASEL).
 
-Получает пакеты в виде домена с шифром в сабдомене (e.g. `somereandomcryptobase64==@example.org`) и отвечает серией IP адресов, шифруя инфу в их октетах. Канал связи энкриптится через DHE. 
+## How it works
+Client messages are encrypted, split into packets, and encoded as domain addresses (e.g., somerandomcryptobase64==@example.org).
+The server receives these packets, assembles and decrypts them, and responds with packets encoded as IP addresses.
+There is potential to develop this into an RCE control center, but such an implementation was not needed. However,
+an example of this can be found in [WEASEL][facebook-weasel].
+
+[facebook-weasel]: https://github.com/facebookarchive/WEASEL
